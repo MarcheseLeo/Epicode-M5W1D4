@@ -44,7 +44,7 @@ export const MyMain = () => {
     }
     const handleLengthChange = (e) => {
         let value = parseInt(e.target.value);
-        
+
         if (isNaN(value)) {
             setLength('');
             return;
