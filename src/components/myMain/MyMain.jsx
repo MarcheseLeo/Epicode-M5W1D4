@@ -77,7 +77,7 @@ export const MyMain = () => {
             </Form>
             <AllTheBooks
                 title={list[index].title}
-                books={list[index].books.slice(0, length)}
+                books={list[index].books.slice(0, length).reverse()}
             />
         </>
     )
