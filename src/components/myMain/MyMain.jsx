@@ -57,15 +57,6 @@ export const MyMain = () => {
     }
     return (
         <>
-            <Container>
-                <Row>
-                    <Welcome />
-                    <Col className='d-flex justify-content-center gap-5'>
-                        <Button onClick={decrement} variant="primary">Go prev</Button>
-                        <Button onClick={increment} variant="primary">Go next</Button>
-                    </Col>
-                </Row>
-            </Container>
             <Form className='w-25 mx-auto my-5'>
                 <Form.Group className="mb-3">
                     <Form.Label>Number of books</Form.Label>
@@ -75,7 +66,16 @@ export const MyMain = () => {
                     </Form.Text>
                 </Form.Group>
             </Form>
-            <AllTheBooks
+            <Container>
+                <Row>
+                    <Welcome />
+                    <Col className='d-flex justify-content-center gap-5'>
+                        <Button onClick={decrement} variant="primary">Go prev</Button>
+                        <Button onClick={increment} variant="primary">Go next</Button>
+                    </Col>
+                </Row>
+            </Container>
+            <AllTheBooks 
                 title={list[index].title}
                 books={list[index].books.slice(0, length).reverse()}
             />
