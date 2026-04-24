@@ -56,7 +56,12 @@ export const MyMain = () => {
         setLength(value);
     }
     return (
-        <>
+        <>  
+            <Container>
+                <Row>
+                    <Welcome />
+                </Row>
+            </Container>
             <Form className='w-25 mx-auto my-5'>
                 <Form.Group className="mb-3">
                     <Form.Label>Number of books</Form.Label>
@@ -68,7 +73,6 @@ export const MyMain = () => {
             </Form>
             <Container>
                 <Row>
-                    <Welcome />
                     <Col className='d-flex justify-content-center gap-5'>
                         <Button onClick={decrement} variant="primary">Go prev</Button>
                         <Button onClick={increment} variant="primary">Go next</Button>
