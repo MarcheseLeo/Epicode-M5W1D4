@@ -13,6 +13,7 @@ import romanceBooks from '../../books/romance.json'
 export const MyMain = () => {
     const [index, setindex] = useState(0)
     const [length, setLength] = useState(150)
+    const [input, setInput] = useState('')
     const list = [
         {
             title: 'Fantasy',
@@ -38,9 +39,11 @@ export const MyMain = () => {
 
     const increment = () => {
         setindex((index < 4) ? index + 1 : index)
+        clearInput()
     }
     const decrement = () => {
         setindex((index > 0) ? index - 1 : index)
+        clearInput()
     }
     const handleLengthChange = (e) => {
         let value = parseInt(e.target.value);
@@ -55,6 +58,15 @@ export const MyMain = () => {
 
         setLength(value);
     }
+
+    const clearInput = () =>{
+        setInput('')
+    }
+
+    const handleInputChange = (e) => {
+        setInput(e.target.value)        
+    }
+
     return (
         <>  
             <Container>
@@ -70,6 +82,13 @@ export const MyMain = () => {
                         Scegli un numero di libri da visualizzare (Max 150).
                     </Form.Text>
                 </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Search books</Form.Label>
+                    <Form.Control type="input" placeholder='Cerca un libro' value={input} onChange={handleInputChange}/>
+                    <Form.Text className="text-muted">
+                        Inserisci il nome di un libro.
+                    </Form.Text>
+                </Form.Group>
             </Form>
             <Container>
                 <Row>
@@ -81,7 +100,7 @@ export const MyMain = () => {
             </Container>
             <AllTheBooks 
                 title={list[index].title}
-                books={list[index].books.slice(0, length).reverse()}
+                books={list[index].books.slice(0, length).filter(book => book.title.toLowerCase().includes(input.toLowerCase())).reverse()}
             />
         </>
     )

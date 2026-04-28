@@ -33,6 +33,13 @@
     border-color: #008bf8 !important;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
 }
+.card.selected{
+    border-color: rgb(250, 58, 0) !important;
+}
+
+.card.selected .btn{
+    background-color:  rgba(250, 58, 0, 0.616);
+}
 
 .card:hover .btn {
     transform: translate(-50%, -15%);
