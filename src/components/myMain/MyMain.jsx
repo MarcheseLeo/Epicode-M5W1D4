@@ -12,7 +12,7 @@ import romanceBooks from '../../books/romance.json'
 
 export const MyMain = () => {
     const [index, setindex] = useState(0)
-    const [length, setLength] = useState(150)
+    const [length, setLength] = useState(15)
     const [input, setInput] = useState('')
     const list = [
         {

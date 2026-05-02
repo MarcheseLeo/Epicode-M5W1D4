@@ -1,0 +1,148 @@
+.comment-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.comment-item {
+    background-color: #ecececb7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.comment-item.edit {
+    background-color: #ffffff;
+    box-shadow: 0 8px 7px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    border: 1px solid #d1d1d1;
+}
+
+.comment-author {
+    font-size: 1.1rem;
+}
+
+.comment-rating {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.setting-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: rgb(129, 110, 216);
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 0px 0px 2px rgb(212, 209, 255);
+    transition: background-color 0.1s linear
+}
+.setting-btn.active {
+    background-color: rgb(245, 202, 13); 
+    box-shadow: 0 0 0 2px rgb(255, 245, 201);
+}
+.bar {
+    width: 50%;
+    height: 2px;
+    background-color: rgb(229, 229, 229);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+.setting-btn.active .bar::before{
+    opacity: 0;
+}
+.setting-btn.active .bar2 {
+    opacity: 0;
+}
+.setting-btn.active .bar1:first-child {
+    transform: rotate(45deg) translate(6px, 6px);
+    width: 60%;
+}
+.setting-btn.active .bar1:last-child {
+    transform: rotate(-45deg) translate(6px, -6px);
+    width: 60%;
+}
+.bar::before {
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: rgb(126, 117, 255);
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all 0.3s;
+    box-shadow: 0px 0px 5px white;
+}
+
+.bar1::before {
+    transform: translateX(-4px);
+}
+
+.bar2::before {
+    transform: translateX(4px);
+}
+
+.setting-btn:hover .bar1::before {
+    transform: translateX(4px);
+}
+
+.setting-btn:hover .bar2::before {
+    transform: translateX(-4px);
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.bin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: rgb(255, 95, 95);
+    cursor: pointer;
+    border: 2px solid rgb(255, 201, 201);
+    transition-duration: 0.3s;
+}
+
+.bin-bottom {
+    width: 15px;
+}
+
+.bin-top {
+    width: 17px;
+    transform-origin: right;
+    transition-duration: 0.3s;
+}
+
+.bin-button:hover .bin-top {
+    transform: rotate(45deg);
+}
+
+.bin-button:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.bin-button:active {
+    transform: scale(0.9);
+}
+

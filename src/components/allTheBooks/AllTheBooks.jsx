@@ -8,7 +8,7 @@ export const AllTheBooks = ({title, books}) => {
         <Container>
             <h2 className='my-4'>{title}</h2>
             <Row xs={1} sm={2} md={3} lg={4} className='gy-4'>
-                {books.map(book => <SingleBook key={book.asin} img={book.img} title={book.title} price={book.price} category={book.category}/>)}
+                {books.map(book => <SingleBook key={book.asin} img={book.img} title={book.title} price={book.price} category={book.category} asin={book.asin}/>)}
             </Row>
         </Container>
     </>
