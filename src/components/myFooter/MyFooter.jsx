@@ -6,7 +6,7 @@ export const MyFooter = () => {
     const {computedTheme} = useContext(ThemeContext)
     return (
         <footer className={`py-5 ${computedTheme}`}> 
-            <div className="row"> 
+            <div className="row px-4"> 
                 <div className="col-6 col-md-2 mb-3"> 
                     <h5>Section</h5> 
                     <ul className="nav flex-column"> 
