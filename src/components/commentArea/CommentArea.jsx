@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './CommentArea.css'
 import { CommentList } from './CommentList'
 import Modal from 'react-bootstrap/Modal';
@@ -8,6 +8,7 @@ import Alert from 'react-bootstrap/Alert';
 import { Container, Row } from 'react-bootstrap';
 import { UpdateComment } from './UpdateComment';
 import { LoadingCircle } from '../loadingCircle/LoadingCircle';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 
 export const CommentArea = ({ asin, show, handleClose }) => {
@@ -15,6 +16,7 @@ export const CommentArea = ({ asin, show, handleClose }) => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [editCommentId, setEditCommentId] = useState(null)
+
 
     const getComments = async () => {
         setLoading(true)

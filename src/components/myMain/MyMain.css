@@ -1,0 +1,10 @@
+/* Dark */
+.main.dark{
+    background-color:var(--bg-dark-second);
+    color: white;
+}
+
+/* Light */
+.main.light{
+    background-color: var(--bg-light-second);
+}

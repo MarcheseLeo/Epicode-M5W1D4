@@ -1,6 +1,16 @@
+:root {
+    --btn-color: #6048F8;
+}
+
+.card.dark:hover{
+    color: var(--text-dark-second);
+}
+.card.light:hover{
+    color: var(--text-light-first);
+}
+
 .card {
     border-radius: 20px !important;
-    background: #f5f5f5;
     padding: 1.8rem;
     border: 2px solid #c3c6ce !important;
     transition: 0.5s ease-out;
@@ -18,8 +28,8 @@
     width: 60%;
     border-radius: 1rem;
     border: none;
-    background-color: #008bf8;
-    color: #fff;
+    background-color: var(--btn-color);
+    color: var(--text-dark-first);
     font-size: 1rem;
     padding: .5rem 1rem;
     position: absolute;
@@ -30,32 +40,42 @@
 }
 
 .card:hover {
-    border-color: #008bf8 !important;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    border-color: var(--btn-color) !important;
 }
-.card.selected{
+
+.card.selected {
     border-color: rgb(250, 58, 0) !important;
 }
 
-.card.selected .btn{
-    background-color:  rgba(250, 58, 0, 0.616);
+.card.selected .btn {
+    background-color: rgba(250, 58, 0, 0.616);
 }
 
 .card:hover .btn {
     transform: translate(-50%, -15%);
     opacity: 1;
 }
-.card:hover .card-title{
-    color:  #008bf8;
-    text-decoration: underline;
+
+.card:hover .card-title {
+    color: var(--btn-color);
 }
-/* @media screen and (max-width:576px) {
-    .card{
-        display: flex !important;
-    }
-    .card img{
-        width:25%;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-    }
-} */
+.card .price{
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+/* Dark */
+.card.dark {
+    background-color: var(--bg-dark-third);
+    color: var(--text-dark-third);
+}
+
+.card.dark:hover {
+    box-shadow: 0 4px 18px 0 var(--btn-color);
+}
+.card.light {
+    color: var(--text-light-second);
+}
+/* Light */
+.card.light:hover {
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}

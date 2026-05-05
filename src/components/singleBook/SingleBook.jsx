@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './SingleBook.css'
 import { CommentArea } from '../commentArea/CommentArea';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 export const SingleBook = ({ title, img, price, category, asin }) => {
     const [isSelected, setIsSelected] = useState(false)
     const handleSelected = () => setIsSelected(!isSelected)
     
+    const {computedTheme} = useContext(ThemeContext)
+    const selectecStyle = isSelected ? 'selected' : ''
+
     return (
         <Col >
-            <Card onClick={handleSelected} className={isSelected ? 'selected' : ''} >
+            <Card onClick={handleSelected} className={ `${computedTheme} ${selectecStyle}`} >
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title className='text-truncate'>{title}</Card.Title>
                     <Card.Text>
                         {category}
                     </Card.Text>
-                    <Card.Text>
+                    <Card.Text className='price'>
                         ${price}
                     </Card.Text>
                     <Button variant="primary">More info</Button>

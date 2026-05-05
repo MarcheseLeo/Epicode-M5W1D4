@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Welcome } from '../welcome/Welcome'
 import { AllTheBooks } from '../allTheBooks/AllTheBooks'
 import { Col, Container, Form, Row } from 'react-bootstrap'
@@ -8,12 +8,14 @@ import historyBooks from '../../books/history.json'
 import horrorBooks from '../../books/horror.json'
 import scifiBooks from '../../books/scifi.json'
 import romanceBooks from '../../books/romance.json'
+import { ThemeContext } from '../../contexts/ThemeContext';
+import './MyMain.css'
 
-
-export const MyMain = () => {
+export const MyMain = ({input, clearInput}) => {
+    const { computedTheme } = useContext(ThemeContext)
+    
     const [index, setindex] = useState(0)
     const [length, setLength] = useState(15)
-    const [input, setInput] = useState('')
     const list = [
         {
             title: 'Fantasy',
@@ -59,16 +61,9 @@ export const MyMain = () => {
         setLength(value);
     }
 
-    const clearInput = () =>{
-        setInput('')
-    }
-
-    const handleInputChange = (e) => {
-        setInput(e.target.value)        
-    }
 
     return (
-        <>  
+        <div className={`main ${computedTheme} py-5`}>
             <Container>
                 <Row>
                     <Welcome />
@@ -77,18 +72,9 @@ export const MyMain = () => {
             <Form className='w-25 mx-auto my-5'>
                 <Form.Group className="mb-3">
                     <Form.Label>Number of books</Form.Label>
-                    <Form.Control type="number" value={length} min={1} max={150} onChange={handleLengthChange}/>
-                    <Form.Text className="text-muted">
-                        Scegli un numero di libri da visualizzare (Max 150).
-                    </Form.Text>
+                    <Form.Control type="number" value={length} min={1} max={150} onChange={handleLengthChange} placeholder={'Insersci numero di libri da visualizzare (max 150)'}/>
                 </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Search books</Form.Label>
-                    <Form.Control type="input" placeholder='Cerca un libro' value={input} onChange={handleInputChange}/>
-                    <Form.Text className="text-muted">
-                        Inserisci il nome di un libro.
-                    </Form.Text>
-                </Form.Group>
+                
             </Form>
             <Container>
                 <Row>
@@ -98,10 +84,10 @@ export const MyMain = () => {
                     </Col>
                 </Row>
             </Container>
-            <AllTheBooks 
+            <AllTheBooks
                 title={list[index].title}
                 books={list[index].books.slice(0, length).filter(book => book.title.toLowerCase().includes(input.toLowerCase())).reverse()}
             />
-        </>
+        </div>
     )
 }

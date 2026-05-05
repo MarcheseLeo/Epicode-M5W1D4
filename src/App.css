@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+:root {
+    /* Background dark*/
+    --bg-dark-first: #1A1C22;
+    --bg-dark-second: #23232C;
+    --bg-dark-third: #2D2E40;
+    /* Background light */
+    --bg-light-first: white;
+    --bg-light-second: #EFF1F5;
+    --bg-light-third:#FAFAFA;
+
+    /* Color dark*/
+    --text-dark-first: #D7D8E1;
+    --text-dark-second: white;
+    --text-dark-third: #7C7F9B;
+    /* Color light */
+    --text-light-first: #171717;
+    --text-light-second:#8A898C;
+    --text-light-third:#757681;
+    
+
+}
+
+* {
     font-family: 'MontSerrat';
     margin: 0;
     padding: 0;

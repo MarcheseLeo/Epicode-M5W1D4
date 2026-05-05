@@ -1,0 +1,91 @@
+:root {
+    /* Nav dark */
+    --nav-border-dark: rgba(0, 0, 0, 0.349);
+    --nav-btn-dark-border-color: rgba(240, 248, 255, 0.5);
+    --nav-btn-bg-hover-dark: #f8f9fa;
+    --nav-btn-text-hover-dark: rgb(22, 22, 22);
+    /* Nav light */
+    --nav-border-light: #a0a0a059;
+    --nav-btn-light-border-color: rgba(0, 0, 0, 0.2);
+    --nav-btn-bg-hover-light: #212529;
+    --nav-btn-text-hover-light: white;
+
+}
+
+/* Dark Theme */
+nav.nav-custom.dark {
+    background-color: var(--bg-dark-first);
+    box-shadow: 0 0 2px 1px var(--nav-border-dark);
+}
+
+nav.nav-custom.dark .navbar-brand,
+nav.nav-custom.dark .nav-link,
+nav.nav-custom.dark .lucide,
+nav.nav-custom.dark .navbar-toggler-icon {
+    color: var(--text-dark-first) !important;
+}
+
+nav.nav-custom.dark .navbar-toggler,
+nav.nav-custom.dark .theme-btn {
+    border-color: var(--nav-btn-dark-border-color) !important;
+}
+
+nav.nav-custom.dark .navbar-toggler-icon {
+    filter: invert(1) brightness(200%) !important;
+}
+
+nav.nav-custom.dark .nav-link:hover {
+    color: var(--text-dark-second) !important;
+    font-weight: 500;
+}
+
+nav.nav-custom.dark .theme-btn:hover,
+nav.nav-custom.dark .navbar-toggler:hover {
+    background-color: var(--nav-btn-bg-hover-dark);
+}
+
+nav.nav-custom.dark .theme-btn:hover .lucide,
+nav.nav-custom.dark .navbar-toggler:hover .navbar-toggler-icon {
+    color: var(--nav-btn-text-hover-dark) !important;
+}
+
+/* Light Theme */
+nav.nav-custom.light {
+    background-color: var(--bg-light-first);
+    box-shadow: 0 0 2px 1px var(--nav-border-light);
+}
+
+nav.nav-custom.light .navbar-brand,
+nav.nav-custom.light .nav-link,
+nav.nav-custom.light .lucide {
+    color: var(--text-light-first) !important;
+}
+
+nav.nav-custom.light .navbar-toggler,
+nav.nav-custom.light .theme-btn {
+    border-color: var(--nav-btn-light-border-color) !important;
+}
+
+nav.nav-custom.light .navbar-toggler-icon {
+    filter: none !important;
+}
+
+nav.nav-custom.light .nav-link:hover {
+    color: black !important;
+    font-weight: 500;
+}
+
+
+nav.nav-custom.light .theme-btn:hover {
+    background-color: var(--nav-btn-bg-hover-light);
+}
+
+nav.nav-custom.light .theme-btn:hover .lucide {
+    color: var(--nav-btn-text-hover-light) !important;
+}
+
+nav.nav-custom .theme-btn:focus,
+nav.nav-custom .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

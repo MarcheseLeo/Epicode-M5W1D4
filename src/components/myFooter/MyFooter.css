@@ -1,0 +1,31 @@
+/* Dark */
+footer.dark {
+    background-color: var(--bg-dark-first);
+}
+
+footer.dark .nav-link,
+footer.dark p{
+    color: var(--text-dark-third);
+}
+footer.dark .nav-link:hover{
+    color: var(--text-dark-second);
+}
+footer.dark h5{
+    color: var(--text-dark-first);
+}
+
+/* Light */
+footer.light {
+    background-color: var(--bg-light-first);
+}
+
+footer.light .nav-link,
+footer.light p{
+    color: var(--text-light-third);
+}
+footer.light .nav-link:hover{
+    color: var(--text-light-second);
+}
+footer.light h5{
+    color: var(--text-light-first);
+}
