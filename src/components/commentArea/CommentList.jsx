@@ -40,12 +40,12 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                             <div className='d-flex align-items-center gap-2'>
                                 <span className='comment-rating d-flex align-items-center'>
                                     {
-                                        [...Array(comment.rate)].map((_, i) => {
-                                            return <Star key={i} color='#FCBF02' fill='#FCBF02' />
+                                        [...Array(5)].map((_, i) => {
+                                            return <Star key={i} color={i<comment.rate ? '#FCBF02' : '#e4e5e9'} fill={i<comment.rate ? '#FCBF02' : '#e4e5e9'} />
                                         })
                                     }
                                 </span>
-                                <p className="creation-date">Creato il {getDate(comment.createdAt)}</p>
+                                <p className="creation-date">{getDate(comment.createdAt)}</p>
                             </div>
                             <div className='d-flex gap-2 align-content-center'>
                                 <button
