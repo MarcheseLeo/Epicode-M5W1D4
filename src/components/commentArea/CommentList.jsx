@@ -37,16 +37,7 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                 return (
                     <li className={isThisCommentEdited ? 'comment-item edit' : 'comment-item'} key={comment["_id"]} id={comment["_id"]}>
                         <div className=' d-flex justify-content-between'>
-                            <div className='d-flex align-items-center gap-2'>
-                                <span className='comment-rating d-flex align-items-center'>
-                                    {
-                                        [...Array(5)].map((_, i) => {
-                                            return <Star key={i} color={i<comment.rate ? '#FCBF02' : '#e4e5e9'} fill={i<comment.rate ? '#FCBF02' : '#e4e5e9'} />
-                                        })
-                                    }
-                                </span>
-                                <p className="creation-date">{getDate(comment.createdAt)}</p>
-                            </div>
+                            <h2 className='comment-author text-truncate'>{comment.author}</h2>
                             <div className='d-flex gap-2 align-content-center'>
                                 <button
                                     class={isThisCommentEdited ? "setting-btn active" : "setting-btn"}
@@ -97,9 +88,18 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
 
                             </div>
                         </div>
-                        <div className='d-flex flex-column'>
-                            <h2 className='comment-author text-truncate'>{comment.author}</h2>
-                            <p className='comment text-truncate'>{comment.comment}</p>
+                        <div className='d-flex flex-column gap-2'>   
+                            <div className='d-flex align-items-center gap-2'>
+                                <span className='comment-rating d-flex align-items-center'>
+                                    {
+                                        [...Array(5)].map((_, i) => {
+                                            return <Star size={20} key={i} color={i < comment.rate ? '#FCBF02' : '#e4e5e9'} fill={i < comment.rate ? '#FCBF02' : '#e4e5e9'} />
+                                        })
+                                    }
+                                </span>
+                                <p className="creation-date">{getDate(comment.createdAt)}</p>
+                            </div>
+                            <p className='comment text-truncate m-0'>{comment.comment}</p>
                         </div>
 
                     </li>
