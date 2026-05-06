@@ -9,7 +9,7 @@ import { Container, Row } from 'react-bootstrap';
 import { UpdateComment } from './UpdateComment';
 import { LoadingCircle } from '../loadingCircle/LoadingCircle';
 import { ThemeContext } from '../../contexts/ThemeContext';
-
+import './CommentArea.css'
 
 export const CommentArea = ({ asin, show, handleClose }) => {
     const [comments, setComments] = useState(null)
@@ -17,7 +17,9 @@ export const CommentArea = ({ asin, show, handleClose }) => {
     const [loading, setLoading] = useState(false)
     const [editCommentId, setEditCommentId] = useState(null)
 
+    const {computedTheme} = useContext(ThemeContext)
 
+    console.log(comments)
     const getComments = async () => {
         setLoading(true)
         try {
@@ -50,7 +52,7 @@ export const CommentArea = ({ asin, show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} className={computedTheme}>
                 <Modal.Header closeButton>
                     <Modal.Title>Sezione commenti</Modal.Title>
                 </Modal.Header>

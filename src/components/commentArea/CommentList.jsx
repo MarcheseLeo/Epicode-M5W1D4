@@ -23,6 +23,12 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
             console.error(e)
         }
     }
+
+    const getDate = (date) => {
+        const d = new Date(date)
+
+        return `${d.toLocaleString().split(',')[0]}`
+    }
     // console.log(comments)
     return (
         <ul className='comment-list py-3'>
@@ -30,17 +36,17 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                 const isThisCommentEdited = editCommentId === comment._id;
                 return (
                     <li className={isThisCommentEdited ? 'comment-item edit' : 'comment-item'} key={comment["_id"]} id={comment["_id"]}>
-                        <h2 className='comment-author text-truncate'>{comment.author}</h2>
-                        <p className='comment text-truncate'>{comment.comment}</p>
-
-                        <div className=' d-flex justify-content-between align-content-center'>
-                            <span className='comment-rating'>
-                                {
-                                    [...Array(comment.rate)].map((_, i) => {
-                                        return <Star key={i} color='#FCBF02' fill='#FCBF02' />
-                                    })
-                                }
-                            </span>
+                        <div className=' d-flex justify-content-between'>
+                            <div className='d-flex align-items-center gap-2'>
+                                <span className='comment-rating d-flex align-items-center'>
+                                    {
+                                        [...Array(comment.rate)].map((_, i) => {
+                                            return <Star key={i} color='#FCBF02' fill='#FCBF02' />
+                                        })
+                                    }
+                                </span>
+                                <p className="creation-date">Creato il {getDate(comment.createdAt)}</p>
+                            </div>
                             <div className='d-flex gap-2 align-content-center'>
                                 <button
                                     class={isThisCommentEdited ? "setting-btn active" : "setting-btn"}
@@ -58,14 +64,14 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
                                     >
-                                        <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
+                                        <line y1="5" x2="39" y2="5" stroke="white" strokeWidth="4"></line>
                                         <line
                                             x1="12"
                                             y1="1.5"
                                             x2="26.0357"
                                             y2="1.5"
                                             stroke="white"
-                                            stroke-width="3"
+                                            strokeWidth="3"
                                         ></line>
                                     </svg>
                                     <svg
@@ -84,13 +90,18 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                                             fill="white"
                                             mask="url(#path-1-inside-1_8_19)"
                                         ></path>
-                                        <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
-                                        <path d="M21 6V29" stroke="white" stroke-width="4"></path>
+                                        <path d="M12 6L12 29" stroke="white" strokeWidth="4"></path>
+                                        <path d="M21 6V29" stroke="white" strokeWidth="4"></path>
                                     </svg>
                                 </button>
 
                             </div>
                         </div>
+                        <div className='d-flex flex-column'>
+                            <h2 className='comment-author text-truncate'>{comment.author}</h2>
+                            <p className='comment text-truncate'>{comment.comment}</p>
+                        </div>
+
                     </li>
                 )
             }).reverse()}
