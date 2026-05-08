@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './CommentArea.css'
 import { CommentList } from './CommentList'
-import Modal from 'react-bootstrap/Modal';
+
 import Button from 'react-bootstrap/Button';
 import { AddComment } from './AddComment';
 import Alert from 'react-bootstrap/Alert';
@@ -11,7 +11,7 @@ import { LoadingCircle } from '../loadingCircle/LoadingCircle';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './CommentArea.css'
 
-export const CommentArea = ({ asin, show, handleClose }) => {
+export const CommentArea = ({ asin }) => {
     const [comments, setComments] = useState(null)
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -31,6 +31,7 @@ export const CommentArea = ({ asin, show, handleClose }) => {
             if (response.ok) {
                 const data = await response.json()
                 setComments(data)
+                setError('')
                 // console.log("Dati ricevuti dalla fetch:", data)
             } else {
                 throw new Error('Errore del server')
@@ -39,30 +40,28 @@ export const CommentArea = ({ asin, show, handleClose }) => {
         } catch (e) {
             setError(e)
         } finally {
-            await new Promise((res)=>{
-                setTimeout(()=>{setLoading(false)},1000)
-            })
+            setTimeout(() => { setLoading(false) }, 500)
         }
     }
 
     useEffect(() => {
-        getComments()
-    }, [])
+        if(asin)
+            getComments()
+        setEditCommentId(null)
+    }, [asin])
 
 
     return (
         <>
-            <Modal show={show} onHide={handleClose} className={computedTheme}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Sezione commenti</Modal.Title>
-                </Modal.Header>
+            <div  className={ `sidebar-comments p-3  rounded ${computedTheme}`}>
+                <h3 className=" pb-2 mb-3">Sezione commenti</h3>
                 {loading && (
                     <div className='d-flex justify-content-center align-content-center my-5'>
                         <LoadingCircle></LoadingCircle>
                     </div>
                 )}
                 {!loading && (
-                    <Modal.Body>
+                    <div className='comment-body'>
                         {comments && (
                             <CommentList comments={comments} callback={getComments} editCommentId={editCommentId} setEditCommentId={setEditCommentId}></CommentList>
                         )}
@@ -75,16 +74,16 @@ export const CommentArea = ({ asin, show, handleClose }) => {
                             </Alert>
                         )}
                         {!editCommentId && (
-                            <AddComment onClick={handleClose} asin={asin} callback={getComments} ></AddComment>
+                            <AddComment asin={asin} callback={getComments} ></AddComment>
                         )}
                         {editCommentId && (
                             <UpdateComment
-                                onClick={handleClose} asin={editCommentId} callback={getComments}
+                                 asin={editCommentId} callback={getComments}
                             />
                         )}
-                    </Modal.Body>
+                    </div>
                 )}
-            </Modal>
+            </div>
         </>
     )
 }

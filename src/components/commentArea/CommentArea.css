@@ -1,22 +1,51 @@
-.modal.dark .modal-content{
-    background-color: var(--bg-dark-first) !important;
-    color: var(--text-dark-first)
+
+.sidebar-comments {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    height: calc(100vh - 100px); 
+    display: flex;
+    flex-direction: column;
 }
-.modal.dark button.btn-close{
-    filter: invert(1);
+
+
+.comments-scroll-area {
+    overflow-y: auto;
+    flex-grow: 1; 
+    padding-right: 5px; 
 }
-.modal.dark .modal-body{
+
+
+.comments-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+.comments-scroll-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.comments-scroll-area::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* ----------- TEMA SCURO ----------- */
+
+.sidebar-comments.dark {
     background-color: var(--bg-dark-second);
+    color: var(--text-dark-first);
 }
 
-.modal.dark .comment-item{
+.sidebar-comments.dark .comment-item {
     background-color: var(--bg-dark-third);
+    border: none;
 }
 
-.modal.dark .creation-date{
+.sidebar-comments.dark .creation-date {
     color: var(--text-dark-third);
 }
 
-.modal.dark  .comment{
+.sidebar-comments.dark .comment {
     color: var(--text-dark-second);
+}
+
+.sidebar-comments.dark .comments-scroll-area::-webkit-scrollbar-thumb {
+    background: #555;
 }

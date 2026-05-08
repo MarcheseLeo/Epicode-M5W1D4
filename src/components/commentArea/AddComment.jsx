@@ -97,9 +97,7 @@ export const AddComment = ({ asin, onClick, callback }) => {
                 </div>
             </div>
             <div className="d-flex justify-content-end gap-2 mt-3">
-                <Button variant="secondary" onClick={onClick}>
-                    Close
-                </Button>
+
                 <Button variant="primary" type="submit" disabled={!isFormValid}>
                     Save Changes
                 </Button>

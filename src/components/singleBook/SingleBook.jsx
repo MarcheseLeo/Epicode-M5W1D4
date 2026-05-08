@@ -6,12 +6,18 @@ import './SingleBook.css'
 import { CommentArea } from '../commentArea/CommentArea';
 import { ThemeContext } from '../../contexts/ThemeContext';
 
-export const SingleBook = ({ title, img, price, category, asin }) => {
-    const [isSelected, setIsSelected] = useState(false)
-    const handleSelected = () => setIsSelected(!isSelected)
+export const SingleBook = ({ title, img, price, category, asin, isSelected, setIsSelected }) => {
+
+    const handleSelected = () => {
+        const isAlreadySelected  = isSelected==asin 
+        if(isAlreadySelected)
+            setIsSelected('')
+        else
+            setIsSelected(asin)
+    }
     
     const {computedTheme} = useContext(ThemeContext)
-    const selectecStyle = isSelected ? 'selected' : ''
+    const selectecStyle = isSelected==asin ? 'selected' : ''
 
     return (
         <Col >
@@ -27,7 +33,7 @@ export const SingleBook = ({ title, img, price, category, asin }) => {
                     </Card.Text>
                     <Button variant="primary">More info</Button>
                 </Card.Body>
-                {isSelected  && (
+                {/* {isSelected  && (
                     <div onClick={(e) => e.stopPropagation()}>
                         <CommentArea
                             asin={asin}
@@ -35,7 +41,7 @@ export const SingleBook = ({ title, img, price, category, asin }) => {
                             handleClose={handleSelected}
                         />
                     </div>
-                )}
+                )} */}
             </Card>
         </Col>
     )
