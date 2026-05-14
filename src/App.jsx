@@ -1,39 +1,26 @@
-import { MyFooter } from "./components/myFooter/MyFooter";
-import { MyMain } from "./components/myMain/MyMain";
-import { MyNav } from "./components/myNav/MyNav"
 import { ThemeProvider } from "./contexts/ThemeContext";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import './App.css'
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./App.css";
+import { Homepage } from "./pages/Homepages";
+import { NotFound } from "./pages/NotFound";
 
 const App = () => {
-
-
-  const [input, setInput] = useState('')
-
-  const clearInput = () => {
-    setInput('')
-  }
-
-  const handleInputChange = (e) => {
-    setInput(e.target.value)
-  }
-  
-
   return (
     <ThemeProvider>
-      <MyNav 
-        handleInputChange={handleInputChange}
-        input={input}
-      />
-      <MyMain 
-        input= {input}
-        clearInput = {clearInput}
-      />
-      <MyFooter />
-    </ThemeProvider>
-  )
-}
+      <BrowserRouter>
+        <Routes>
+          {/* Rotta Index */}
+          <Route index path="/" element={<Homepage />} />
 
-export default App
+          {/* Ultima rotta */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+};
+
+export default App;
