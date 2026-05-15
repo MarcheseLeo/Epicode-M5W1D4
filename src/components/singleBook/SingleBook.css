@@ -2,10 +2,11 @@
     --btn-color: #6048F8;
 }
 
-.card.dark:hover{
+.card.dark:hover {
     color: var(--text-dark-second);
 }
-.card.light:hover{
+
+.card.light:hover {
     color: var(--text-light-first);
 }
 
@@ -43,14 +44,6 @@
     border-color: var(--btn-color) !important;
 }
 
-.card.selected {
-    border-color: rgb(250, 58, 0) !important;
-}
-
-.card.selected .btn {
-    background-color: rgba(250, 58, 0, 0.616);
-}
-
 .card:hover .btn {
     transform: translate(-50%, -15%);
     opacity: 1;
@@ -59,10 +52,12 @@
 .card:hover .card-title {
     color: var(--btn-color);
 }
-.card .price{
+
+.card .price {
     font-weight: 600;
     font-size: 1.8rem;
 }
+
 /* Dark */
 .card.dark {
     background-color: var(--bg-dark-third);
@@ -72,9 +67,11 @@
 .card.dark:hover {
     box-shadow: 0 4px 18px 0 var(--btn-color);
 }
+
 .card.light {
     color: var(--text-light-second);
 }
+
 /* Light */
 .card.light:hover {
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
