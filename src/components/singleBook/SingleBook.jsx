@@ -18,7 +18,7 @@ export const SingleBook = ({ title, img, price, category, asin }) => {
   return (
     <Col>
       <Card className={`${computedTheme}`}>
-        <Card.Img variant="top" src={img} />
+        <Card.Img variant="top" src={img} alt="" />
         <Card.Body>
           <Card.Title className="text-truncate">{title}</Card.Title>
           <Card.Text>{category}</Card.Text>
