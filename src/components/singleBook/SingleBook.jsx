@@ -7,9 +7,24 @@ import { CommentArea } from "../commentArea/CommentArea";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useNavigate } from "react-router-dom";
 
-export const SingleBook = ({ title, img, price, category, asin }) => {
+export const SingleBook = ({
+  title,
+  img,
+  price,
+  category,
+  asin,
+  isSelected,
+  setIsSelected,
+}) => {
   const navigate = useNavigate();
   const { computedTheme } = useContext(ThemeContext);
+  const selectecStyle = isSelected == asin ? "selected" : "";
+
+  const handleSelected = () => {
+    const isAlreadySelected = isSelected == asin;
+    if (isAlreadySelected) setIsSelected("");
+    else setIsSelected(asin);
+  };
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -17,7 +32,10 @@ export const SingleBook = ({ title, img, price, category, asin }) => {
   };
   return (
     <Col>
-      <Card className={`${computedTheme}`}>
+      <Card
+        className={`${computedTheme} ${selectecStyle}`}
+        onClick={handleSelected}
+      >
         <Card.Img variant="top" src={img} alt="" />
         <Card.Body>
           <Card.Title className="text-truncate">{title}</Card.Title>

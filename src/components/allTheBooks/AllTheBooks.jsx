@@ -7,6 +7,7 @@ import { CommentArea } from "../commentArea/CommentArea";
 
 export const AllTheBooks = ({ title, books }) => {
   const { computedTheme } = useContext(ThemeContext);
+  const [isSelected, setIsSelected] = useState("");
   return (
     <>
       <Container className={`books-container ${computedTheme}`}>
@@ -20,6 +21,8 @@ export const AllTheBooks = ({ title, books }) => {
               price={book.price}
               category={book.category}
               asin={book.asin}
+              isSelected={isSelected}
+              setIsSelected={setIsSelected}
             />
           ))}
         </Row>
