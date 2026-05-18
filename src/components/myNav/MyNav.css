@@ -12,6 +12,15 @@
 
 }
 
+.navbar-nav a {
+    text-decoration: none;
+}
+
+.navbar-nav a.active {
+    font-weight: 700;
+    text-shadow: rgba(245, 237, 223, 0.89) 0px 0px 17px;
+}
+
 /* Dark Theme */
 nav.nav-custom.dark {
     background-color: var(--bg-dark-first);
@@ -19,7 +28,7 @@ nav.nav-custom.dark {
 }
 
 nav.nav-custom.dark .navbar-brand,
-nav.nav-custom.dark .nav-link,
+nav.nav-custom.dark .navbar-nav a,
 nav.nav-custom.dark .lucide,
 nav.nav-custom.dark .navbar-toggler-icon {
     color: var(--text-dark-first) !important;
@@ -56,7 +65,7 @@ nav.nav-custom.light {
 }
 
 nav.nav-custom.light .navbar-brand,
-nav.nav-custom.light .nav-link,
+nav.nav-custom.light .navbar-nav a,
 nav.nav-custom.light .lucide {
     color: var(--text-light-first) !important;
 }

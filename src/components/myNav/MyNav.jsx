@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { Button, Form } from 'react-bootstrap';
 import { Moon, Sun } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 import './MyNav.css'
 
 export const MyNav = ({input, handleInputChange}) => {
@@ -15,7 +16,7 @@ export const MyNav = ({input, handleInputChange}) => {
     return (
         <Navbar expand="lg" className={`nav-custom ${computedTheme}`} >
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#home">Logo</Navbar.Brand>
 
                 <div className="d-flex align-items-center order-lg-last gap-2">
                     <Form className=''>
@@ -34,10 +35,10 @@ export const MyNav = ({input, handleInputChange}) => {
                 </div>
 
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">About</Nav.Link>
-                        <Nav.Link href="#link">Browse</Nav.Link>
+                    <Nav className="me-auto d-flex gap-2">
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/about">About</NavLink>
+                        <NavLink to="/browse">Browse</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

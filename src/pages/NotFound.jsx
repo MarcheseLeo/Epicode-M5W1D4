@@ -1,13 +1,18 @@
 import { useEffect, useRef } from "react";
 import "./NotFound.css";
+import { useNavigate } from "react-router-dom";
 
 export const NotFound = () => {
-  // 1. Usiamo i Ref invece di getElementById
+  const navigate = useNavigate()
+
   const visorRef = useRef(null);
   const cordRef = useRef(null);
 
+  const goBack = () => {
+    navigate('/')
+  }
   useEffect(() => {
-    // --- Logica Visore ---
+
     const drawVisor = () => {
       const canvas = visorRef.current;
       if (!canvas) return;
@@ -91,8 +96,8 @@ export const NotFound = () => {
         <div className="error__description">
           It looks like one of the developers fell asleep
         </div>
-        <button className="error__button error__button--active">LOGIN</button>
-        <button className="error__button">CONTACT</button>
+        <button className="error__button error__button--active fs-5" onClick={goBack}>Go Back</button>
+        <button className="error__button fs-5">CONTACT</button>
       </div>
 
       <div className="astronaut">
