@@ -59,4 +59,5 @@ describe("Testing AllTheBooks component", () => {
     expect(firstCard).not.toHaveClass('selected')
     expect(secondCard).not.toHaveClass('selected')
   })
+
 });

@@ -24,4 +24,11 @@ describe('Testing App copmponent', () => {
 
         expect(screen.queryByText(/destiny grimoire/i)).toBeInTheDocument();
     })
+
+    it('should not show comment area at the boot', () => {
+        render(<App/>)
+
+        const commentArea = screen.queryByText(/sezione commenti/i)
+        expect(commentArea).not.toBeInTheDocument()
+    })
 })

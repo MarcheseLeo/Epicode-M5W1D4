@@ -35,7 +35,7 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
             {comments.map((comment, index) => {
                 const isThisCommentEdited = editCommentId === comment._id;
                 return (
-                    <li className={isThisCommentEdited ? 'comment-item edit' : 'comment-item'} key={comment["_id"]} id={comment["_id"]}>
+                    <li className={isThisCommentEdited ? 'comment-item edit' : 'comment-item'} key={comment["_id"]} id={comment["_id"]} data-testid="single-comment">
                         <div className=' d-flex justify-content-between'>
                             <h2 className='comment-author text-truncate'>{comment.author}</h2>
                             <div className='d-flex gap-2 align-content-center'>
