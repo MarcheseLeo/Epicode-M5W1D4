@@ -2,7 +2,7 @@ import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import { Star } from 'lucide-react'
 
-export const AddComment = ({ asin, onClick, callback }) => {
+export const AddComment = ({ asin, onClick, callback, setSuccess}) => {
     const [form, setForm] = useState({
         comment: '',
         rate: ''
@@ -40,20 +40,20 @@ export const AddComment = ({ asin, onClick, callback }) => {
                 },
                 body: JSON.stringify({
                     comment: form.comment,
-                    rate: Number(form.rate), // Converte la stringa in numero intero
-                    elementId: asin // Aggiunge l'identificativo del libro!
+                    rate: Number(form.rate),
+                    elementId: asin 
                 })
             })
 
             if (response.ok) {
                 callback()
                 console.log("Commento salvato con successo!")
-
-                // Opzionale ma consigliato: svuota il form dopo il successo
+                setSuccess(true)
+                setTimeout(() =>{
+                    setSuccess(false)
+                },3500)
                 setForm({ author: '', comment: '', rate: '' })
 
-                // Se vuoi chiudere la modale in automatico dopo il salvataggio:
-                // onClick() 
             } else {
                 console.error("Errore dal server durante il salvataggio")
                 alert("Errore durante il salvataggio del commento.")

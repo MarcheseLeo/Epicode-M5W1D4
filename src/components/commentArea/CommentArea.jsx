@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./CommentArea.css";
 import { CommentList } from "./CommentList";
-
 import Button from "react-bootstrap/Button";
 import { AddComment } from "./AddComment";
-import Alert from "react-bootstrap/Alert";
 import { Container, Row } from "react-bootstrap";
 import { UpdateComment } from "./UpdateComment";
 import { LoadingCircle } from "../loadingCircle/LoadingCircle";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { MyAlert } from "../myAlert/myAlert";
 import "./CommentArea.css";
 
 export const CommentArea = ({ asin }) => {
   const [comments, setComments] = useState(null);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [editCommentId, setEditCommentId] = useState(null);
 
@@ -41,7 +41,7 @@ export const CommentArea = ({ asin }) => {
       }
     } catch (e) {
       setError(e.message);
-      console.error(error);
+      console.error(e);
     } finally {
       setTimeout(() => {
         setLoading(false);
@@ -71,19 +71,28 @@ export const CommentArea = ({ asin }) => {
                 callback={getComments}
                 editCommentId={editCommentId}
                 setEditCommentId={setEditCommentId}
+                setSuccess={setSuccess}
               ></CommentList>
             )}
-            {!comments && (
-              <Alert variant="danger" className="my-4">
-                <Alert.Heading>Qualcosa è andato storto</Alert.Heading>
-                <p>{error}</p>
-              </Alert>
+            {!comments && error &&(
+              <MyAlert
+                variant={"danger"}
+                message={"Qualcosa è andato storto"}
+              />
             )}
+            {success && (
+              <MyAlert
+                variant={'success'}
+                message={'Operazione finita con successo'}
+              />
+            )
+
+            }
             {!editCommentId && (
-              <AddComment asin={asin} callback={getComments}></AddComment>
+              <AddComment asin={asin} callback={getComments} setSuccess={setSuccess}></AddComment>
             )}
             {editCommentId && (
-              <UpdateComment asin={editCommentId} callback={getComments} />
+              <UpdateComment asin={editCommentId} callback={getComments} setSuccess={setSuccess} />
             )}
           </div>
         )}

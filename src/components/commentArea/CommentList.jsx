@@ -1,7 +1,7 @@
 import './CommentList.css'
 import Button from 'react-bootstrap/Button';
 import { Star } from 'lucide-react'
-export const CommentList = ({ comments, callback, editCommentId, setEditCommentId }) => {
+export const CommentList = ({ comments, callback, editCommentId, setEditCommentId, setSuccess }) => {
 
     const handleDelete = async (e) => {
         const id = e.target.closest('li').getAttribute('id')
@@ -16,8 +16,13 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
             if (response.ok) {
                 console.log('Commento eliminato con successo')
                 callback()
+                setSuccess(true)
+                setTimeout(() =>{
+                    setSuccess(false)
+                },3500)
             } else {
                 throw new Error("Non è stato possibile eliminare il commento")
+                
             }
         } catch (e) {
             console.error(e)
