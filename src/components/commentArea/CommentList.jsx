@@ -9,7 +9,7 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
             const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${id}`, {
                 method: "DELETE",
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWQ2NjE3MjUzMjU4OTAwMTU2MjAyOWEiLCJpYXQiOjE3Nzc1NzEwMTQsImV4cCI6MTc3ODc4MDYxNH0.KD0Q3RpupkQZ-PMEyt8q_Ne7eUyX12U2epR2UNyfMnE",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTA3MzA2ZGQ2M2FhMTAwMTUxM2RlNzMiLCJpYXQiOjE3Nzg4NTYwNDUsImV4cCI6MTc4MDA2NTY0NX0.DBSJZFArPEvEv7AtQ4ANDDJzMogPuuD5DandZX0UyOE",
                     "Content-Type": "application/json"
                 },
             })
@@ -40,17 +40,17 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                             <h2 className='comment-author text-truncate'>{comment.author}</h2>
                             <div className='d-flex gap-2 align-content-center'>
                                 <button
-                                    class={isThisCommentEdited ? "setting-btn active" : "setting-btn"}
+                                    className={isThisCommentEdited ? "setting-btn active" : "setting-btn"}
                                     onClick={() => { setEditCommentId(isThisCommentEdited ? null : comment._id) }}
                                 >
-                                    <span class="bar bar1"></span>
-                                    <span class="bar bar2"></span>
-                                    <span class="bar bar1"></span>
+                                    <span className="bar bar1"></span>
+                                    <span className="bar bar2"></span>
+                                    <span className="bar bar1"></span>
                                 </button>
 
-                                <button class="bin-button" onClick={handleDelete}>
+                                <button className="bin-button" onClick={handleDelete}>
                                     <svg
-                                        class="bin-top"
+                                        className="bin-top"
                                         viewBox="0 0 39 7"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export const CommentList = ({ comments, callback, editCommentId, setEditCommentI
                                         ></line>
                                     </svg>
                                     <svg
-                                        class="bin-bottom"
+                                        className="bin-bottom"
                                         viewBox="0 0 33 39"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"

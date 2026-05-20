@@ -35,7 +35,7 @@ export const UpdateComment = ({ asin, onClick, callback }) => {
             const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${asin}`, {
                 method: "PUT",
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWQ2NjE3MjUzMjU4OTAwMTU2MjAyOWEiLCJpYXQiOjE3Nzc1NzEwMTQsImV4cCI6MTc3ODc4MDYxNH0.KD0Q3RpupkQZ-PMEyt8q_Ne7eUyX12U2epR2UNyfMnE",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTA3MzA2ZGQ2M2FhMTAwMTUxM2RlNzMiLCJpYXQiOjE3Nzg4NTYwNDUsImV4cCI6MTc4MDA2NTY0NX0.DBSJZFArPEvEv7AtQ4ANDDJzMogPuuD5DandZX0UyOE",
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
@@ -72,7 +72,7 @@ export const UpdateComment = ({ asin, onClick, callback }) => {
         try {
             const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${asin}`, {
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWQ2NjE3MjUzMjU4OTAwMTU2MjAyOWEiLCJpYXQiOjE3Nzc1NzEwMTQsImV4cCI6MTc3ODc4MDYxNH0.KD0Q3RpupkQZ-PMEyt8q_Ne7eUyX12U2epR2UNyfMnE"
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTA3MzA2ZGQ2M2FhMTAwMTUxM2RlNzMiLCJpYXQiOjE3Nzg4NTYwNDUsImV4cCI6MTc4MDA2NTY0NX0.DBSJZFArPEvEv7AtQ4ANDDJzMogPuuD5DandZX0UyOE",
                 }
             })
             if (response.ok) {

@@ -19,7 +19,6 @@ export const CommentArea = ({ asin }) => {
 
   const { computedTheme } = useContext(ThemeContext);
 
-  console.log(comments);
   const getComments = async () => {
     setLoading(true);
     try {
