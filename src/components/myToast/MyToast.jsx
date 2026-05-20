@@ -9,7 +9,7 @@ export const MyToast = ({ variant, message }) => {
 
     const toggleShowA = ({variant, message}) => setShowA(!showA);
     return (
-        <ToastContainer position='bottom-end' className='p-5'>
+        <ToastContainer position='bottom-end' className='p-2'>
             <Toast show={showA} onClose={toggleShowA} bg={variant.toLowerCase()} className='text-light'>
                 <Toast.Header>
                     <img

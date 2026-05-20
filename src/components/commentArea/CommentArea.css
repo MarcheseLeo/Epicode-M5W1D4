@@ -2,7 +2,7 @@
 .sidebar-comments {
     background-color: rgba(0, 0, 0, 0.02);
     border-radius: 12px;
-    height: calc(100vh - 100px); 
+    height: calc(100vh - 200px); 
     display: flex;
     flex-direction: column;
 }
