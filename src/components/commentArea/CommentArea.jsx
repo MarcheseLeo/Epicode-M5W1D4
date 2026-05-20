@@ -7,7 +7,7 @@ import { Container, Row } from "react-bootstrap";
 import { UpdateComment } from "./UpdateComment";
 import { LoadingCircle } from "../loadingCircle/LoadingCircle";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { MyAlert } from "../myAlert/myAlert";
+import { MyToast } from "../myToast/MyToast";
 import "./CommentArea.css";
 
 export const CommentArea = ({ asin }) => {
@@ -74,20 +74,6 @@ export const CommentArea = ({ asin }) => {
                 setSuccess={setSuccess}
               ></CommentList>
             )}
-            {!comments && error &&(
-              <MyAlert
-                variant={"danger"}
-                message={"Qualcosa è andato storto"}
-              />
-            )}
-            {success && (
-              <MyAlert
-                variant={'success'}
-                message={'Operazione finita con successo'}
-              />
-            )
-
-            }
             {!editCommentId && (
               <AddComment asin={asin} callback={getComments} setSuccess={setSuccess}></AddComment>
             )}
@@ -97,6 +83,19 @@ export const CommentArea = ({ asin }) => {
           </div>
         )}
       </div>
+
+      {success && (
+        <MyToast
+          variant={'success'}
+          message={'Operazione finita con successo'}
+        />
+      )}
+      {!comments && error && (
+        <MyToast
+          variant={"danger"}
+          message={"Qualcosa è andato storto"}
+        />
+      )}
     </>
   );
 };
